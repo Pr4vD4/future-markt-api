@@ -48,9 +48,9 @@ class ApplicationController extends Controller
 
         $application = Application::create($validator->validated());
 
-//        $tg_responses = Telegram::send($application);
+        $tg_responses = Telegram::send($application);
 
-//        $bitrix24_response = Bitrix24::send($application);
+        $bitrix24_response = Bitrix24::send($application);
 
         dispatch(new ApplicationMailJob($application));
 
