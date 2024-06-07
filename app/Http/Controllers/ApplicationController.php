@@ -37,7 +37,7 @@ class ApplicationController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => '',
             'phone' => 'required',
-            'body' => 'json',
+            'body' => '',
             'web_site_id' => 'required|exists:web_sites,id',
         ]);
 
@@ -58,8 +58,8 @@ class ApplicationController extends Controller
             'message' => 'success',
             'data' => [
                 'application' => new ApplicationResource($application),
-//                'telegram_message_responses' => $tg_responses,
-//                'bitrix24_add_lead_responses' => $bitrix24_response,
+                'telegram_message_responses' => $tg_responses,
+                'bitrix24_add_lead_responses' => $bitrix24_response,
 
             ],
         ]);

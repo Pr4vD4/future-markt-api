@@ -43,7 +43,7 @@ class Bitrix24
 
             foreach (json_decode($application->body) as $key => $value) {
 
-                $data .= $key . ': ' . $value . "\n";
+                $data .= $value->title . ': ' . $value->value . "\n";
 
             }
 

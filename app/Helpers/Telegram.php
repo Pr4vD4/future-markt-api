@@ -23,7 +23,7 @@ class Telegram
 
             foreach (json_decode($application->body) as $key => $value) {
 
-                $telegram_string .= '_' . $key . ':_ ' . $value . "\n";
+                $telegram_string .= '_' . $value->title . ':_ ' . $value->value . "\n";
 
             }
         }
