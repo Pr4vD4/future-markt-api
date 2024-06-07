@@ -17,7 +17,7 @@
 
 @if(isset($data['body']))
     @foreach($data['body'] as $key => $value)
-        <p>{{ $key }}: {{ $value }}</p>
+        <p>{{ $value->title }}: {{ $value->value }}</p>
     @endforeach
 @endif
 
