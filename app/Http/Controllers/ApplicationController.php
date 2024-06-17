@@ -48,18 +48,18 @@ class ApplicationController extends Controller
 
         $application = Application::create($validator->validated());
 
-//        $tg_responses = Telegram::send($application);
+        $tg_responses = Telegram::send($application);
+//
+        $bitrix24_response = Bitrix24::send($application);
 
-//        $bitrix24_response = Bitrix24::send($application);
-
-        dispatch(new ApplicationMailJob($application));
+//        dispatch(new ApplicationMailJob($application));
 
         return response()->json([
             'message' => 'success',
             'data' => [
                 'application' => new ApplicationResource($application),
-//                'telegram_message_responses' => $tg_responses,
-//                'bitrix24_add_lead_responses' => $bitrix24_response,
+                'telegram_message_responses' => $tg_responses,
+                'bitrix24_add_lead_responses' => $bitrix24_response,
 
             ],
         ]);
