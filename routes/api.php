@@ -14,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'application'], function() {
+Route::group(['prefix' => 'application'], function () {
     Route::post('/', [\App\Http\Controllers\ApplicationController::class, 'store'])->name('application.store');
     Route::get('/{application}', [\App\Http\Controllers\ApplicationController::class, 'show'])->name('application.show');
+});
+
+Route::group(['prefix' => 'manifest'], function () {
+    Route::get('/tonconnect-manifest', function () {
+        return response()->json([[
+            'url' => "",
+            "name" => "Constructor Ton",
+            "iconUrl" => "",
+        ]]);
+    });
 });
