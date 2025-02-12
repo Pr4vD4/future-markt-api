@@ -37,7 +37,7 @@ class ApplicationController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => '',
             'phone' => 'required',
-            'body' => '',
+            'body' => 'string',
             'web_site_id' => 'required|exists:web_sites,id',
         ]);
 
