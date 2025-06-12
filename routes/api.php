@@ -19,6 +19,12 @@ Route::group(['prefix' => 'application'], function () {
     Route::get('/{application}', [\App\Http\Controllers\ApplicationController::class, 'show'])->name('application.show');
 });
 
+Route::group(['prefix' => 'sphere'], function () {
+    Route::group(['prefix' => 'lead'], function () {
+        Route::post('/', [\App\Http\Controllers\SphereLeadController::class, 'make'])->name('sphere.lead.make');
+    });
+});
+
 Route::group(['prefix' => 'manifest'], function () {
     Route::get('/tonconnect-manifest', function () {
         return response()->json([[
